@@ -1,0 +1,8 @@
+export { default as iconEllipsis } from "./icon-ellipsis.svg"
+export { default as iconExercise } from "./icon-exercise.svg"
+export { default as iconPlay } from "./icon-play.svg"
+export { default as iconSelfCare } from "./icon-self-care.svg"
+export { default as iconSocial } from "./icon-social.svg"
+export { default as iconStudy } from "./icon-study.svg"
+export { default as iconWork } from "./icon-work.svg"
+export { default as imageJeremy } from "./image-jeremy.png"
