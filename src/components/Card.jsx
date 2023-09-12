@@ -1,25 +1,37 @@
 import React from 'react'
-import { iconEllipsis, iconWork } from "../assets/images/images"
+import { iconEllipsis, iconWork, iconPlay, iconStudy, iconExercise, iconSocial, iconSelfCare } from "../assets/images/images"
 
-const Card = ({ title }) => {
+const Card = ({ title, dailyCurrent, dailyPrevious, weeklyCurrent, weeklyPrevious, monthlyCurrent, monthlyPrevious }) => {
 
     const titleToColour = {
-        "Work": "light-red-work",
-        "Play": "soft-blue",
-        "Study": "light-red-study",
-        "Exercise": "lime-green",
-        "Social": "violet",
-        "Self Care": "soft-orange"
+        "Work": "hsl(15, 100%, 70%)",
+        "Play": "hsl(195, 74%, 62%)",
+        "Study": "hsl(348, 100%, 68%)",
+        "Exercise": "hsl(145, 58%, 55%)",
+        "Social": "hsl(264, 64%, 52%)",
+        "Self Care": "hsl(43, 84%, 65%)"
+    }
+
+    const titleToIcon = {
+        "Work": iconWork,
+        "Play": iconPlay,
+        "Study": iconStudy,
+        "Exercise": iconExercise,
+        "Social": iconSocial,
+        "Self Care": iconSelfCare
     }
 
     const background = titleToColour[title]
     return (
         <>
             <div>
-                <div className={`relative h-14 bg-${background} top-4 rounded-lg z-0`}>
+                <div
+                    className={`relative h-14 top-4 rounded-lg z-0`}
+                    style={{ backgroundColor: titleToColour[title] }}
+                >
                     <img
-                        src={iconWork}
-                        alt="icon-work"
+                        src={titleToIcon[title]}
+                        alt="icon"
                         className="relative left-[72%]"
                     />
                 </div>
@@ -30,8 +42,8 @@ const Card = ({ title }) => {
                         <img src={iconEllipsis} alt="icon-ellipsis" />
                     </div>
                     <div className="flex items-center justify-between">
-                        <div className="text-white text-3xl font-light">32hrs</div>
-                        <div className="text-pale-blue text-sm">Last Week - 36hrs</div>
+                        <div className="text-white text-3xl font-light">{weeklyCurrent}hrs</div>
+                        <div className="text-pale-blue text-sm">Last Week - {weeklyPrevious}hrs</div>
                     </div>
                 </div>
             </div>
