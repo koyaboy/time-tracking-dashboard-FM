@@ -24,7 +24,7 @@ const Card = ({ title, selection, dailyCurrent, dailyPrevious, weeklyCurrent, we
     const background = titleToColour[title]
     return (
         <>
-            <div>
+            <div className='lg:row-span-1 lg:col-span-1'>
                 <div
                     className={`relative h-14 top-4 rounded-lg z-0`}
                     style={{ backgroundColor: titleToColour[title] }}
@@ -32,7 +32,7 @@ const Card = ({ title, selection, dailyCurrent, dailyPrevious, weeklyCurrent, we
                     <img
                         src={titleToIcon[title]}
                         alt="icon"
-                        className="relative left-[72%]"
+                        className="relative left-[72%] lg:left-[65%] xl:left-[73%]"
                     />
                 </div>
 
@@ -41,22 +41,22 @@ const Card = ({ title, selection, dailyCurrent, dailyPrevious, weeklyCurrent, we
                         <h2 className="text-white">{title}</h2>
                         <img src={iconEllipsis} alt="icon-ellipsis" />
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between lg:flex-col lg:items-start lg:mt-6">
                         {selection === "Daily" && (
                             <>
-                                <div className="text-white text-3xl font-light">{dailyCurrent}hrs</div>
+                                <div className="text-white text-3xl font-light lg:text-5xl">{dailyCurrent}hrs</div>
                                 <div className="text-pale-blue text-sm">Last Week - {dailyPrevious}hrs</div>
                             </>
                         )}
                         {selection === "Weekly" && (
                             <>
-                                <div className="text-white text-3xl font-light">{weeklyCurrent}hrs</div>
+                                <div className="text-white text-3xl font-light lg:text-5xl">{weeklyCurrent}hrs</div>
                                 <div className="text-pale-blue text-sm">Last Week - {weeklyPrevious}hrs</div>
                             </>
                         )}
                         {selection === "Monthly" && (
                             <>
-                                <div className="text-white text-3xl font-light">{monthlyCurrent}hrs</div>
+                                <div className="text-white text-3xl font-light lg:text-5xl">{monthlyCurrent}hrs</div>
                                 <div className="text-pale-blue text-sm">Last Week - {monthlyPrevious}hrs</div>
                             </>
                         )}
