@@ -1,9 +1,25 @@
+import { useRef, useState } from "react"
 import Card from "./components/Card"
 
 import data from "/data.json"
 import { imageJeremy } from "./assets/images/images"
 
 function App() {
+
+  const [selection, setSelection] = useState("Weekly")
+
+  const dailyRef = useRef(null)
+  const weeklyRef = useRef(null)
+  const monthlyRef = useRef(null)
+
+  const handleSelection = (ref) => {
+    dailyRef.current.classList.remove("active")
+    weeklyRef.current.classList.remove("active")
+    monthlyRef.current.classList.remove("active")
+
+    ref.current.classList.add("active")
+    setSelection(ref.current.textContent)
+  }
 
   return (
     <>
@@ -25,9 +41,9 @@ function App() {
 
           <div className="bg-dark-blue px-6 py-5 rounded-b-lg relative -top-2 z-0">
             <div className="text-pale-blue flex justify-between">
-              <div>Daily</div>
-              <div>Weekly</div>
-              <div>Monthly</div>
+              <div ref={dailyRef} onClick={() => handleSelection(dailyRef)}>Daily</div>
+              <div ref={weeklyRef} className="active" onClick={() => handleSelection(weeklyRef)}>Weekly</div>
+              <div ref={monthlyRef} onClick={() => handleSelection(monthlyRef)}>Monthly</div>
             </div>
           </div>
         </div>
@@ -36,6 +52,7 @@ function App() {
           {data.map((item, index) => (
             <Card key={index}
               title={item.title}
+              selection={selection}
               dailyCurrent={item.timeframes.daily.current}
               dailyPrevious={item.timeframes.daily.previous}
               weeklyCurrent={item.timeframes.weekly.current}

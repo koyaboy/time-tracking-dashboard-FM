@@ -1,7 +1,7 @@
 import React from 'react'
 import { iconEllipsis, iconWork, iconPlay, iconStudy, iconExercise, iconSocial, iconSelfCare } from "../assets/images/images"
 
-const Card = ({ title, dailyCurrent, dailyPrevious, weeklyCurrent, weeklyPrevious, monthlyCurrent, monthlyPrevious }) => {
+const Card = ({ title, selection, dailyCurrent, dailyPrevious, weeklyCurrent, weeklyPrevious, monthlyCurrent, monthlyPrevious }) => {
 
     const titleToColour = {
         "Work": "hsl(15, 100%, 70%)",
@@ -42,8 +42,25 @@ const Card = ({ title, dailyCurrent, dailyPrevious, weeklyCurrent, weeklyPreviou
                         <img src={iconEllipsis} alt="icon-ellipsis" />
                     </div>
                     <div className="flex items-center justify-between">
-                        <div className="text-white text-3xl font-light">{weeklyCurrent}hrs</div>
-                        <div className="text-pale-blue text-sm">Last Week - {weeklyPrevious}hrs</div>
+                        {selection === "Daily" && (
+                            <>
+                                <div className="text-white text-3xl font-light">{dailyCurrent}hrs</div>
+                                <div className="text-pale-blue text-sm">Last Week - {dailyPrevious}hrs</div>
+                            </>
+                        )}
+                        {selection === "Weekly" && (
+                            <>
+                                <div className="text-white text-3xl font-light">{weeklyCurrent}hrs</div>
+                                <div className="text-pale-blue text-sm">Last Week - {weeklyPrevious}hrs</div>
+                            </>
+                        )}
+                        {selection === "Monthly" && (
+                            <>
+                                <div className="text-white text-3xl font-light">{monthlyCurrent}hrs</div>
+                                <div className="text-pale-blue text-sm">Last Week - {monthlyPrevious}hrs</div>
+                            </>
+                        )}
+
                     </div>
                 </div>
             </div>
