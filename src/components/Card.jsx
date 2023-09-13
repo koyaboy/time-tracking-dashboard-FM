@@ -32,14 +32,15 @@ const Card = ({ title, selection, dailyCurrent, dailyPrevious, weeklyCurrent, we
                     <img
                         src={titleToIcon[title]}
                         alt="icon"
-                        className="relative left-[72%] lg:left-[65%] xl:left-[73%]"
+                        className="relative left-[72%] lg:left-[60%] xl:left-[70%]"
                     />
                 </div>
 
-                <div className="relative bg-dark-blue p-5 z-10 rounded-lg">
+                <div className="relative bg-dark-blue p-5 z-10 rounded-lg group hover:cursor-pointer">
+                    <div className='overlay absolute rounded-lg group-hover:bg-white group-hover:bg-opacity-20 w-full h-full top-0 left-0'></div>
                     <div className="flex items-center justify-between">
                         <h2 className="text-white">{title}</h2>
-                        <img src={iconEllipsis} alt="icon-ellipsis" />
+                        <img src={iconEllipsis} alt="icon-ellipsis" className='cursor-pointer' />
                     </div>
                     <div className="flex items-center justify-between lg:flex-col lg:items-start lg:mt-6">
                         {selection === "Daily" && (

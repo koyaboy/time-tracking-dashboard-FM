@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-very-dark-blue min-w-screen min-h-screen px-4 py-16 lg:flex lg:justify-center lg:items-center ">
+      <div className="bg-very-dark-blue min-w-screen min-h-screen px-4 py-16 lg:flex lg:justify-center lg:items-center lg:px-20 lg:py-36">
         <div className="lg:grid lg:grid-cols-4 lg:grid-rows-2 lg:gap-x-4">
           <div className="lg:row-span-2 lg:py-4">
             <div className="bg-blue p-6 rounded-xl flex items-center gap-4 z-10 relative lg:flex lg:flex-col lg:items-start lg:px-6">
@@ -42,9 +42,9 @@ function App() {
 
             <div className="bg-dark-blue px-6 py-5 rounded-b-lg relative -top-2 z-0 lg:py-8">
               <div className="text-pale-blue flex justify-between lg:flex-col lg:items-start lg:gap-4">
-                <div ref={dailyRef} onClick={() => handleSelection(dailyRef)}>Daily</div>
-                <div ref={weeklyRef} className="active" onClick={() => handleSelection(weeklyRef)}>Weekly</div>
-                <div ref={monthlyRef} onClick={() => handleSelection(monthlyRef)}>Monthly</div>
+                <div ref={dailyRef} className="cursor-pointer hover:text-white" onClick={() => handleSelection(dailyRef)} >Daily</div>
+                <div ref={weeklyRef} className="cursor-pointer active hover:text-white" onClick={() => handleSelection(weeklyRef)}>Weekly</div>
+                <div ref={monthlyRef} className="cursor-pointer hover:text-white " onClick={() => handleSelection(monthlyRef)}>Monthly</div>
               </div>
             </div>
           </div>
